@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Automobiliai, kurie randasi #{masinosAiksteleje.aikstele.adresas} aikštelėje:</h2>
+    <ol>
+        <ui:repeat value="#{masinosAiksteleje.aikstele.automobiliai}" var="auto">
+            <li>
+                <h:link value="#{auto.marke} #{auto.modelis}" outcome="vairuotojai?autoID=#{auto.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="marke" value="#{masinosAiksteleje.automobilisToCreate.marke}" required="true" />
+        <h:inputText a:placeholder="modelis" value="#{masinosAiksteleje.automobilisToCreate.modelis}" required="true" />
+        <h:inputText a:placeholder="vin" value="#{masinosAiksteleje.automobilisToCreate.vin}" required="true" />
+
+        <h:commandButton value="Pridėti automobilį aikštelėje"
+                         actionListener="#{masinosAiksteleje.createAuto}"
+                         action="#{'automobiliai?faces-redirect=true&amp;aiksteleId='.concat(masinosAiksteleje.aikstele.id)}">
+            <f:param name="aiksteleId" value="#{masinosAiksteleje.aikstele.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="index" value="Grįžti į pagrindinį"/>
+</h:body>
+</html>

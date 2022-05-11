@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Aikštelės:</h2>
+    <ol>
+        <ui:repeat value="#{aiksteles.allAiksteles}" var="aikstele">
+            <li><h:link value="#{aikstele.adresas}" outcome="automobiliai?aiksteleId=#{aikstele.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{aiksteles.aiksteleToCreate.adresas}" required="true" />
+        <h:commandButton value="Pridėti naują aikštelę" actionListener="#{aiksteles.createAikstele}" action="index?faces-redirect=true"/>
+    </h:form>
+    <h:link outcome="myBatis/aiksteles" value="MyBatis implementation"/>
+    <h2>Vairuotojai:</h2>
+    <ol>
+        <ui:repeat value="#{vairuotojuManage.allVairuotojai}" var="vairas">
+            <li><h:link value="#{vairas.vardas} #{vairas.pavarde}" outcome="details?driverID=#{vairas.id}" /></li>
+        </ui:repeat>
+    </ol>
+</h:body>
+</html>
