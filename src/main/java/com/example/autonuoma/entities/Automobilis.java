@@ -1,6 +1,7 @@
 package com.example.autonuoma.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -64,9 +65,9 @@ public class Automobilis {
         this.vin = vin;
     }
 
-    private List<Vairuotojas> vairuotojai;
+    private List<Vairuotojas> vairuotojai = new ArrayList<>();;
 
-    @ManyToMany(mappedBy = "ak")
+    @ManyToMany(mappedBy = "nuomotiAutomobiliai")
     public List<Vairuotojas> getVairuotojai() {
         return vairuotojai;
     }

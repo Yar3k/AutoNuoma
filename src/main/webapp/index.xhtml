@@ -6,7 +6,7 @@
 >
 <h:head/>
 <h:body>
-    <h2>Aiksteles:</h2>
+    <h2>Aikštelės:</h2>
     <ol>
         <ui:repeat value="#{aiksteles.allAiksteles}" var="aikstele">
             <li><h:link value="#{aikstele.adresas}" outcome="automobiliai?aiksteleId=#{aikstele.id}" /></li>
@@ -14,8 +14,14 @@
     </ol>
     <h:form>
         <h:inputText value="#{aiksteles.aiksteleToCreate.adresas}" required="true" />
-        <h:commandButton value="Add new aikstele" actionListener="#{aiksteles.createAikstele}" action="index?faces-redirect=true"/>
+        <h:commandButton value="Pridėti naują aikštelę" actionListener="#{aiksteles.createAikstele}" action="index?faces-redirect=true"/>
     </h:form>
-    <h:link outcome="myBatis/teams" value="MyBatis implementation"/>
+    <h:link outcome="myBatis/aiksteles" value="MyBatis implementation"/>
+    <h2>Vairuotojai:</h2>
+    <ol>
+        <ui:repeat value="#{vairuotojuManage.allVairuotojai}" var="vairas">
+            <li><h:link value="#{vairas.vardas} #{vairas.pavarde}" outcome="details?driverID=#{vairas.id}" /></li>
+        </ui:repeat>
+    </ol>
 </h:body>
 </html>

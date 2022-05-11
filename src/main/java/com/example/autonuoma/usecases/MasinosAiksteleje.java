@@ -42,15 +42,6 @@ public class MasinosAiksteleje implements Serializable {
     @Transactional
     @LoggedInvocation
     public void createAuto() {
-        System.out.println("-------------------------------");
-        System.out.println(this.aikstele.getAdresas());
-        System.out.println(this.aikstele.getId());
-        System.out.println("-------------------------------");
-        System.out.println(automobilisToCreate.getAikstele());
-        System.out.println(automobilisToCreate.getMarke());
-        System.out.println(automobilisToCreate.getModelis());
-        System.out.println(automobilisToCreate.getVin());
-        System.out.println("-------------------------------");
         automobilisToCreate.setAikstele(this.aikstele);
         masinosDAO.persist(automobilisToCreate);
     }

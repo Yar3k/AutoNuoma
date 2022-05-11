@@ -7,11 +7,11 @@
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head/>
 <h:body>
-    <h2>Players playing in #{masinosAiksteleje.aikstele.adresas} team:</h2>
+    <h2>Automobiliai, kurie randasi #{masinosAiksteleje.aikstele.adresas} aikštelėje:</h2>
     <ol>
         <ui:repeat value="#{masinosAiksteleje.aikstele.automobiliai}" var="auto">
             <li>
-                <h:link value="#{auto.marke} #{auto.modelis}" outcome="playerDetails?playerId=#{auto.id}" />
+                <h:link value="#{auto.marke} #{auto.modelis}" outcome="vairuotojai?autoID=#{auto.id}" />
             </li>
         </ui:repeat>
     </ol>
@@ -20,12 +20,12 @@
         <h:inputText a:placeholder="modelis" value="#{masinosAiksteleje.automobilisToCreate.modelis}" required="true" />
         <h:inputText a:placeholder="vin" value="#{masinosAiksteleje.automobilisToCreate.vin}" required="true" />
 
-        <h:commandButton value="Add player to the team"
+        <h:commandButton value="Pridėti automobilį aikštelėje"
                          actionListener="#{masinosAiksteleje.createAuto}"
                          action="#{'automobiliai?faces-redirect=true&amp;aiksteleId='.concat(masinosAiksteleje.aikstele.id)}">
             <f:param name="aiksteleId" value="#{masinosAiksteleje.aikstele.id}" />
         </h:commandButton>
     </h:form>
-    <h:link outcome="index" value="Back to parkingu page"/>
+    <h:link outcome="index" value="Grįžti į pagrindinį"/>
 </h:body>
 </html>

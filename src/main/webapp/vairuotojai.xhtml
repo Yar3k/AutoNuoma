@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Vairuotojai, kurie vairuoją #{vairuotojai.auto.marke} #{vairuotojai.auto.modelis} automobilį:</h2>
+    <ol>
+        <ui:repeat value="#{vairuotojai.auto.vairuotojai}" var="driver">
+            <li>
+                <div> #{driver.vardas} #{driver.pavarde} </div>
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="vardas" value="#{vairuotojai.vairuotojasToAssign.vardas}" required="true" />
+        <h:inputText a:placeholder="pavarde" value="#{vairuotojai.vairuotojasToAssign.pavarde}" required="true" />
+
+        <h:commandButton value="Priskirti vairuotoją automobiliui"
+                         actionListener="#{vairuotojai.assignDriver}"
+                         action="#{'vairuotojai?faces-redirect=true&amp;autoID='.concat(vairuotojai.auto.id)}">
+            <f:param name="autoID" value="#{vairuotojai.auto.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="index" value="Grįžti į pagrindinį"/>
+</h:body>
+</html>

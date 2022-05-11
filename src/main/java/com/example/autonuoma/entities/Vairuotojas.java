@@ -1,9 +1,13 @@
 package com.example.autonuoma.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Vairuotojas.findAll", query = "select a from Vairuotojas as a")
+})
 public class Vairuotojas {
     private Long id;
 
@@ -41,7 +45,7 @@ public class Vairuotojas {
 
     private String ak;
 
-    @Basic(optional = false)
+    @Basic(optional = true)
     public String getAk() {
         return ak;
     }
@@ -50,7 +54,7 @@ public class Vairuotojas {
         this.ak = ak;
     }
 
-    private List<Automobilis> nuomotiAutomobiliai;
+    private List<Automobilis> nuomotiAutomobiliai = new ArrayList<>();;
 
     @ManyToMany()
     public List<Automobilis> getNuomotiAutomobiliai() {

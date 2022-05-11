@@ -19,6 +19,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="AutomobiliaiPersistanceUnit" value="3df0c0c6-e106-47de-88da-873f2c737068" />
           <factory-entry name="default" />
         </datasource-mapping>
         <naming-strategy-map />
