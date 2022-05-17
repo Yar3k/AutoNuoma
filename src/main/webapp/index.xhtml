@@ -20,7 +20,7 @@
     <h2>Vairuotojai:</h2>
     <ol>
         <ui:repeat value="#{vairuotojuManage.allVairuotojai}" var="vairas">
-            <li><h:link value="#{vairas.vardas} #{vairas.pavarde}" outcome="details?driverID=#{vairas.id}" /></li>
+            <li><h:link value="#{vairas.vardas} #{vairas.pavarde} (#{vairas.nuomotiAutomobiliai.size()})" outcome="details?driverID=#{vairas.id}" /></li>
         </ui:repeat>
     </ol>
 </h:body>

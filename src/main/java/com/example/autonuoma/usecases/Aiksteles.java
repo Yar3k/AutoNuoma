@@ -1,6 +1,7 @@
 package com.example.autonuoma.usecases;
 
 import com.example.autonuoma.entities.Aikstele;
+import com.example.autonuoma.inter.LoggedInvocation;
 import com.example.autonuoma.persistence.AiksteleDAO;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +30,7 @@ public class Aiksteles {
     }
 
     @Transactional
+    @LoggedInvocation
     public void createAikstele(){
         this.aikstelesDAO.persist(aiksteleToCreate);
     }
