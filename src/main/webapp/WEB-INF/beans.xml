@@ -9,7 +9,7 @@
     <interceptors>
         <class>com.example.autonuoma.inter.MethodLogger</class>
     </interceptors>
-    
+
     <alternatives>
         <class>com.example.autonuoma.service.AlternativeMaker</class>
     </alternatives>

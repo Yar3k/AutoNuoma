@@ -18,6 +18,11 @@ public class AlternativeMaker implements VinMaker {
             vin += new Random().nextInt(10);
         }
         vin += modelis.substring(0,1);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return vin;
     }
 }
