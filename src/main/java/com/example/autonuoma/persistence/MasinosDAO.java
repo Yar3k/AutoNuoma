@@ -1,10 +1,12 @@
 package com.example.autonuoma.persistence;
 
+import com.example.autonuoma.entities.Aikstele;
 import com.example.autonuoma.entities.Automobilis;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @ApplicationScoped
 public class MasinosDAO {
@@ -24,5 +26,9 @@ public class MasinosDAO {
         Automobilis updated = em.merge(player);
         //em.flush();
         return updated;
+    }
+
+    public List<Automobilis> loadAll() {
+        return em.createNamedQuery("Automobilis.findAll", Automobilis.class).getResultList();
     }
 }

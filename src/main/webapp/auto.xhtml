@@ -10,16 +10,16 @@
     <h2>#{updateVIN.automobilis.marke} #{updateVIN.automobilis.modelis}</h2>
     <h2>#{updateVIN.automobilis.vin}</h2>
     <h:form>
-        <h:outputText value="jersey number: "/>
-        <h:inputText a:placeholder="enter the value" value="#{updateVIN.automobilis.vin}" required="true" />
+        <h:outputText value="Automobilio VIN numeris: "/>
+        <h:inputText a:placeholder="Įveskite VIN numerį" value="#{updateVIN.automobilis.vin}" required="true" />
         <h:commandButton value="update" action="#{updateVIN.updatePlayerJerseyNumber()}">
             <f:param name="autoID" value="#{updateVIN.automobilis.id}" />
         </h:commandButton>
-        <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+        <h:outputText value="Šį reikšmė buvo modifikuota. Norint ją perrašyti, bandykite dar kartą" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
     </h:form>
     <h:form>
         <h:outputText value="#{vinGenerator.generationStatus}" />
-        <h:commandButton value="Generate player number?" disabled="#{vinGenerator.generationRunning}" action="#{vinGenerator.generateVIN()}">
+        <h:commandButton value="Sugeneruoti VIN numerį" disabled="#{vinGenerator.generationRunning}" action="#{vinGenerator.generateVIN()}">
             <f:param name="marke" value="#{updateVIN.automobilis.marke}" />
             <f:param name="modelis" value="#{updateVIN.automobilis.modelis}" />
             <f:param name="autoID" value="#{updateVIN.automobilis.id}" />

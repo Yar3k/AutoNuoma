@@ -23,5 +23,12 @@
             <li><h:link value="#{vairas.vardas} #{vairas.pavarde} (#{vairas.nuomotiAutomobiliai.size()})" outcome="details?driverID=#{vairas.id}" /></li>
         </ui:repeat>
     </ol>
+
+    <h2>Automobiliai:</h2>
+    <ol>
+        <ui:repeat value="#{automobiliai.allAutomobiliai}" var="auto">
+            <li><h:link value="#{auto.marke} #{auto.modelis}" outcome="auto?autoID=#{auto.id}" /></li>
+        </ui:repeat>
+    </ol>
 </h:body>
 </html>
