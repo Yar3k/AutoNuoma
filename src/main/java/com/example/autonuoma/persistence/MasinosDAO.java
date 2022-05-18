@@ -21,6 +21,8 @@ public class MasinosDAO {
     }
 
     public Automobilis update(Automobilis player){
-        return em.merge(player);
+        Automobilis updated = em.merge(player);
+        //em.flush();
+        return updated;
     }
 }
